@@ -1,0 +1,16 @@
+.container {
+  display: flex;
+  outline: 1px solid red;
+  width: 480px;
+  height: 480px;
+  margin: auto;
+}
+.container .row {
+  display: flex;
+  outline: 1px solid green;
+}
+.container div {
+  outline: 1px solid;
+  width: 100%;
+  width: 100%;
+}

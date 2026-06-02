@@ -1,0 +1,22 @@
+// sass .:. -w --no-source-map
+// sass game.scss:game.css -w --no-source-map     
+
+
+.container {
+	display: flex;
+	outline: 1px solid red;
+	width: 480px;
+	height: 480px;
+	margin: auto;
+
+	.row {
+		display: flex;
+		outline: 1px solid green;
+	}
+
+	div {
+		outline: 1px solid;
+		width: 100%;
+		width: 100%;
+	}
+}
