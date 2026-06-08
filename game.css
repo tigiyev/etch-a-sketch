@@ -1,16 +1,122 @@
-.container {
+:root {
+  --indent-1: 8px;
+  --indent-2: 16px;
+  --indent-3: 24px;
+  --indent-4: 32px;
+  --indent-5: 40px;
+  --indent-6: 48px;
+  --indent-7: 56px;
+  --indent-8: 64px;
+}
+@media screen and (max-width: 768px) {
+  :root {
+    --indent-1: 4px;
+    --indent-2: 8px;
+    --indent-3: 16px;
+    --indent-4: 24px;
+    --indent-5: 32px;
+    --indent-6: 40px;
+    --indent-7: 48px;
+    --indent-8: 56px;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  scroll-behavior: smooth;
+  font-family: sans-serif;
+}
+
+body {
+  min-height: 100%;
+  margin: 0;
+}
+
+.indent-1 {
+  margin-bottom: var(--indent-1);
+}
+
+.indent-2 {
+  margin-bottom: var(--indent-2);
+}
+
+.indent-3 {
+  margin-bottom: var(--indent-3);
+}
+
+.indent-4 {
+  margin-bottom: var(--indent-4);
+}
+
+.indent-5 {
+  margin-bottom: var(--indent-5);
+}
+
+.indent-6 {
+  margin-bottom: var(--indent-6);
+}
+
+.indent-7 {
+  margin-bottom: var(--indent-7);
+}
+
+.indent-8 {
+  margin-bottom: var(--indent-8);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+.subtext {
+  opacity: 0.65;
+}
+
+.main {
   display: flex;
-  outline: 1px solid red;
-  width: 480px;
-  height: 480px;
+  padding: 2vw;
+}
+
+.game {
+  display: flex;
+  gap: 16px;
   margin: auto;
 }
-.container .row {
+
+.controls {
+  width: 240px;
   display: flex;
-  outline: 1px solid green;
+  flex-wrap: wrap;
+  align-content: flex-start;
 }
-.container div {
-  outline: 1px solid;
+
+#gameGrid {
+  display: flex;
+  flex-wrap: wrap;
+  width: 720px;
+  height: 720px;
+  max-width: 90vw;
+  max-height: 90vh;
+}
+#gameGrid .row {
+  display: flex;
+}
+#gameGrid div {
+  outline: 1px solid #e2e2e2;
   width: 100%;
-  width: 100%;
+}
+#gameGrid .active {
+  background-color: rgb(48, 48, 48);
 }

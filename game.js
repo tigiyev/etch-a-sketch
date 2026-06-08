@@ -2,48 +2,62 @@
 
 document.addEventListener("DOMContentLoaded", (e) => {
 
-	let container = document.querySelector(".container")
-
-
-	// create square grid 64x64 (max is 100)
-
-
-	// divs fill container
+	let container = document.querySelector("#gameGrid")
+	let updGridBtn = document.querySelector("#updateGrid")
+	const gridCountDefault = 32
+	const gridCountMin = 4
+	const gridCountMax = 100
 
 
 	function createGrid(gridCount) {
 
-		// fill container with horizontal and vertical divs
-		// create rows with gridCount squares
+		// check if grid count is correct
+		if (gridCount < gridCountMin || gridCount > gridCountMax) {
+			console.log(`Entered number is out of the safe range (${gridCountMin}-${gridCountMax}). Returned to default value`);
+			gridCount = gridCountDefault;
 
-		// I think it overwrides same element because it bond to the variable
-		// how to create element and give it a class without assigning the var??
-
-
-		// var 1 : clone the same element 16 times
-		// var 2 : create array, copy element 16 times, past to the dom
-		// var 3 : create 16 divs, give them row classes, create 16 divs inside each row class
-
-		let rowEl = document.createElement("div")
-		rowEl.classList.add('row')
-
-		let cloned = rowEl.cloneNode()
-		console.log(cloned);
-
-
-		let pixelEl = document.createElement("div")
-
-		for (let i = 0; i < gridCount; i++) {
-			console.log("hello");
-
-			container.appendChild(pixelEl)
-			container.appendChild(document.createElement("div"))
+			// update value in the input
+			document.querySelector("#gridCount").value = gridCountDefault
 		}
 
-		// for (let i = 0; i < gridCount; i++) {
-		// 	container.appendChild(document.createElement("div"))
-		// }
+		// fill container with horizontal and vertical divs
+		// create gridCount rows
+		// fill each row with gridCount divs
+		// add event listener to each div inside row to add class to self after hover
+
+		for (let i = 0; i < gridCount; i++) {
+
+			let rowEl = document.createElement("div")
+			rowEl.classList.add('row')
+
+			for (let k = 0; k < gridCount; k++) {
+				let pixel = document.createElement("div")
+				pixel.addEventListener("mouseover", () => {
+					pixel.classList.add("active")
+				})
+				rowEl.appendChild(pixel)
+			}
+
+			container.appendChild(rowEl)
+		}
+
 	}
-	createGrid(16)
+	createGrid(gridCountDefault)
+
+
+	// take value from input and run function createGrid with it
+	function updateGrid() {
+
+		// get current input value
+		let gridCount = document.querySelector("#gridCount").value
+
+		// delete old grid
+		container.innerHTML = ""
+
+		// create new grid 
+		createGrid(gridCount)
+	}
+
+	updGridBtn.addEventListener("click", updateGrid)
 })
 
