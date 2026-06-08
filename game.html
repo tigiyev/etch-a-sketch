@@ -16,13 +16,29 @@
 		<div class="game">
 
 			<div class="controls">
-				<h1 class="indent-6">Etch-a-Sketch</h1>
-				<h3 class="indent-1">Grid resolution</h3>
-				<p class="indent-2 subtext">Number of squares per side. From 4 to 100.</p>
-				<div>
-					<input id="gridCount" type="number" value="32" min="4" max="100">
-					<button id="updateGrid">Update grid</button>
+				<h1 class="indent-4">Etch-a-Sketch</h1>
+
+				<div class="hr indent-4"></div>
+
+				<div class="indent-3">
+					<h3 class="indent-1">Grid resolution</h3>
+					<p class="indent-2 subtext">Number of squares per side. From 4 to 100.</p>
+					<input id="gridCount" type="number" value="48" min="4" max="100">
 				</div>
+
+				<div class="indent-4">
+					<h3 class="indent-1">Coloring mode</h3>
+					<div class="radio-cont">
+						<input type="radio" id="blackColor" name="colorSwitch" checked>
+						<label for="blackColor">Black</label>
+					</div>
+					<div class="radio-cont">
+						<input type="radio" id="randomColor" name="colorSwitch">
+						<label for="randomColor">Random</label>
+					</div>
+				</div>
+
+				<button id="updateGrid">Update grid</button>
 			</div>
 
 			<div id="gameGrid" class="container"></div>

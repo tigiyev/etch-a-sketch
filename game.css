@@ -38,6 +38,28 @@ body {
   margin: 0;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+.subtext {
+  opacity: 0.65;
+}
+
+.hr {
+  width: 100%;
+  height: 1px;
+  border-bottom: 1px solid #b9b9b9;
+  background: transparent;
+  margin-bottom: 16px;
+}
+
 .indent-1 {
   margin-bottom: var(--indent-1);
 }
@@ -70,20 +92,6 @@ body {
   margin-bottom: var(--indent-8);
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
-  margin: 0;
-}
-
-.subtext {
-  opacity: 0.65;
-}
-
 .main {
   display: flex;
   padding: 2vw;
@@ -98,8 +106,45 @@ p {
 .controls {
   width: 240px;
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
   align-content: flex-start;
+}
+.controls div {
+  width: 100%;
+}
+.controls input[type=number] {
+  width: 100%;
+  padding: 16px;
+  margin: 0;
+  border-radius: 4px;
+  border: 1px solid #3a3a3a;
+}
+.controls input[type=radio] {
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  padding: 8px;
+  cursor: pointer;
+}
+.controls label {
+  width: 100%;
+  padding: 8px;
+  cursor: pointer;
+}
+.controls .radio-cont {
+  display: flex;
+  align-items: baseline;
+  cursor: pointer;
+}
+.controls button {
+  padding: 16px 28px;
+  font-size: 16px;
+  background-color: #3a3a3a;
+  color: #eaeaea;
+  border-radius: 4px;
+  border: 0;
+  cursor: pointer;
 }
 
 #gameGrid {
@@ -112,11 +157,13 @@ p {
 }
 #gameGrid .row {
   display: flex;
+  outline: 1px solid transparent;
 }
 #gameGrid div {
-  outline: 1px solid #e2e2e2;
+  outline: 1px solid rgb(230, 230, 230);
   width: 100%;
 }
 #gameGrid .active {
-  background-color: rgb(48, 48, 48);
+  background-color: rgb(40, 40, 40);
+  outline: 1px solid rgb(149, 149, 149);
 }

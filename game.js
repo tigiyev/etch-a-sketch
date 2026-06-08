@@ -4,9 +4,12 @@ document.addEventListener("DOMContentLoaded", (e) => {
 
 	let container = document.querySelector("#gameGrid")
 	let updGridBtn = document.querySelector("#updateGrid")
-	const gridCountDefault = 32
+
+	const gridCountDefault = 48
 	const gridCountMin = 4
 	const gridCountMax = 100
+
+	let pixelColor = "black"
 
 
 	function createGrid(gridCount) {
@@ -32,12 +35,27 @@ document.addEventListener("DOMContentLoaded", (e) => {
 
 			for (let k = 0; k < gridCount; k++) {
 				let pixel = document.createElement("div")
-				pixel.addEventListener("mouseover", () => {
-					pixel.classList.add("active")
-				})
+
+				if (pixelColor == "random") {
+					// random color
+					pixel.addEventListener("mouseover", () => {
+						pixel.style.backgroundColor =
+							`rgb(
+							${Math.floor(Math.random() * 255)},
+							${Math.floor(Math.random() * 255)},
+							${Math.floor(Math.random() * 255)}
+							)`
+					})
+
+				}
+				else {
+					// default Black
+					pixel.addEventListener("mouseover", () => {
+						pixel.classList.add("active")
+					})
+				}
 				rowEl.appendChild(pixel)
 			}
-
 			container.appendChild(rowEl)
 		}
 
@@ -51,11 +69,20 @@ document.addEventListener("DOMContentLoaded", (e) => {
 		// get current input value
 		let gridCount = document.querySelector("#gridCount").value
 
+		// select pixel color
+		if (document.querySelector("#randomColor").checked) {
+			console.log("random");
+			pixelColor = "random"
+		}
+		else pixelColor = "black"
+
+
 		// delete old grid
 		container.innerHTML = ""
 
 		// create new grid 
 		createGrid(gridCount)
+
 	}
 
 	updGridBtn.addEventListener("click", updateGrid)

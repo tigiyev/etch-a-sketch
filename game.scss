@@ -42,6 +42,29 @@ body {
 	margin: 0;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+	margin: 0;
+}
+
+.subtext {
+	opacity: .65;
+}
+
+.hr {
+	width: 100%;
+	height: 1px;
+	border-bottom: 1px solid #b9b9b9;
+	background: transparent;
+	margin-bottom: 16px;
+}
+
+
 .indent-1 {
 	margin-bottom: var(--indent-1);
 }
@@ -74,20 +97,6 @@ body {
 	margin-bottom: var(--indent-8);
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
-	margin: 0;
-}
-
-.subtext {
-	opacity: .65;
-}
-
 // base
 
 
@@ -105,32 +114,77 @@ p {
 .controls {
 	width: 240px;
 	display: flex;
+	flex-direction: column;
 	flex-wrap: wrap;
 	align-content: flex-start;
+
+	div {
+		width: 100%;
+	}
+
+	input[type=number] {
+		width: 100%;
+		padding: 16px;
+		margin: 0;
+		border-radius: 4px;
+		border: 1px solid #3a3a3a;
+	}
+
+	input[type=radio] {
+		width: 16px;
+		height: 16px;
+		margin: 0;
+		padding: 8px;
+		cursor: pointer;
+	}
+
+	label {
+		width: 100%;
+		padding: 8px;
+		cursor: pointer;
+	}
+
+	.radio-cont {
+		display: flex;
+		align-items: baseline;
+		cursor: pointer;
+
+		// gap: 8px;
+		// gaps are unclickable
+	}
+
+	button {
+		padding: 16px 28px;
+		font-size: 16px;
+		background-color: #3a3a3a;
+		color: #eaeaea;
+		border-radius: 4px;
+		border: 0;
+		cursor: pointer;
+	}
 }
 
 #gameGrid {
 	display: flex;
 	flex-wrap: wrap;
-	// outline: 1px solid red;
 	width: 720px;
 	height: 720px;
-
 	max-width: 90vw;
 	max-height: 90vh;
 
-
 	.row {
 		display: flex;
-		// outline: 1px solid green;
+		outline: 1px solid transparent;
 	}
 
 	div {
-		outline: 1px solid #e2e2e2;
+		outline: 1px solid rgb(230, 230, 230);
 		width: 100%;
 	}
 
 	.active {
-		background-color: rgb(48, 48, 48);
+		background-color: rgb(40, 40, 40);
+		// outline: 1px solid transparent;
+		outline: 1px solid rgb(149, 149, 149);
 	}
 }
