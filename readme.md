@@ -2,4 +2,4 @@
 ### Draw by moving coursor around
 
 
-Online version: https://codepen.io/Tigiyev/pen/VYmOQKN
+https://tigiyev.github.io/etch-a-sketch/
